@@ -54,14 +54,14 @@ jobs:
           default: true
       - name: Build binary
         run: |
-          cargo build --verbose --release
+          cargo build --verbose --release --target i686-pc-windows-msvc
       - name: Run clippy
         uses: actions-rs/clippy-check@v1.0.7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           args: --all-targets -- -D warnings
       - name: Check formatting
-        run: cargo fmt --all -- --check --target i686-pc-windows-msvc
+        run: cargo fmt --all -- --check
       - name: Upload binary
         uses: actions/upload-artifact@v2
         with:
