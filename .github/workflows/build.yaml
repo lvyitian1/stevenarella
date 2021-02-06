@@ -54,6 +54,7 @@ jobs:
           default: true
       - name: Build binary
         run: |
+          rustup target add i686-pc-windows-msvc
           cargo build --verbose --release --target i686-pc-windows-msvc
       - name: Run clippy
         uses: actions-rs/clippy-check@v1.0.7
